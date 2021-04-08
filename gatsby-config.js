@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Sibaja Alimentos`,
+    description: `Somos una empresa de servicios que se dedica a la producción y distribución de productos derivados del nixtamal y el trigo.`,
+    author: `@bloomstudiomx`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -29,8 +29,19 @@ module.exports = {
       },
     },
     `gatsby-plugin-gatsby-cloud`,
+    {
+      resolve: `gatsby-plugin-react-svg`,
+      options: {
+        rule: {
+          include: /\.inline\.svg$/,
+        },
+      },
+    },
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-smoothscroll`,
+    `gatsby-plugin-typescript`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};
