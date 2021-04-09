@@ -61,6 +61,7 @@ const MobileMenu = styled.div`
     &:first-of-type {
       position: absolute;
       width: 40px;
+      flex: 0 0 40%;
       top: 15px;
       right: 15px;
       svg {
@@ -76,8 +77,7 @@ const MobileMenu = styled.div`
 
 const HamburgerWrapper = styled.button`
   z-index: 2;
-  width: 50%;
-  max-width: 40px;
+  width: 40px;
   background: transparent;
   border: 0;
   svg {
