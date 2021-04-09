@@ -24,12 +24,11 @@ const Services = () => {
       </div>
       <Row className="mb-5">
         <Col lg={10} className="mx-auto">
-          <Content className="text-center text-lg-left">
+          <Content className="text-center">
             Somos una empresa de servicios que se dedica a la producción y
-            distribución de productos derivados del nixtamal y el trigo.
-            <br />
-            Tenemos 20 años surtiendo al mercado norteño, especializándonos en
-            servicio a comedores industriales.
+            distribución de productos derivados del nixtamal y el trigo. Tenemos
+            20 años surtiendo al mercado norteño, especializándonos en servicio
+            a comedores industriales.
             <br />
             El compromiso con nuestros clientes es hacerles llegar sus pedidos a
             la hora y el lugar requerido para satisfacer a sus comensales.

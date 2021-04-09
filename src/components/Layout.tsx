@@ -45,6 +45,10 @@ const WhatsappBtn = styled.a`
   background: transparent;
   border: 0;
   display: block;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: scale(0.95);
+  }
   @media (min-width: 992px) {
     width: 80px;
   }
