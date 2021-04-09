@@ -59,12 +59,12 @@ const MobileMenu = styled.div`
     margin-bottom: 1rem;
     &:first-of-type {
       position: absolute;
-      width: 40px;
+      min-width: 40px;
       flex: 0 0 40px;
       top: 15px;
       right: 15px;
       svg {
-        width: 100%;
+        width: 40px;
         height: auto;
       }
     }
