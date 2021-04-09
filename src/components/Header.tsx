@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import Headroom from "react-headroom";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import styled from "styled-components";
 import scrollTo from "gatsby-plugin-smoothscroll";
-import { Squash as Hamburger } from "hamburger-react";
 
 import Logo from "../images/logo.inline.svg";
 import Facebook from "../images/facebook.inline.svg";
@@ -12,8 +11,7 @@ import MenuIcon from "../images/menu.inline.svg";
 import Close from "../images/close.inline.svg";
 
 const StyledLogo = styled(Logo)`
-  width: 40%;
-  flex: 0 0 40%;
+  width: 100%;
   max-width: 150px;
   height: auto;
 `;
@@ -77,9 +75,7 @@ const MobileMenu = styled.div`
 `;
 
 const HamburgerWrapper = styled.button`
-  z-index: 2;
   width: 40px;
-  flex: 0 0 40px;
   background: transparent;
   border: 0;
   svg {
@@ -111,48 +107,51 @@ const Header = () => {
       <Headroom style={{ zIndex: 1999 }}>
         <header className="bg-white">
           <Container className="py-4">
-            <div className="d-flex align-items-center">
-              <StyledLogo />
-              <HamburgerWrapper
-                className="ml-auto d-lg-none"
-                onClick={() => setOpen(true)}
-              >
-                <MenuIcon />
-              </HamburgerWrapper>
-              <Menu className="ml-lg-auto list-unstyled m-0 p-0 d-none d-lg-flex">
-                {menuItems.map(menuItem => (
-                  <li key={menuItem}>
-                    <button
-                      className="text-uppercase border-0 bg-transparent"
-                      onClick={() => {
-                        scrollTo(`#${menuItem}`);
-                        setOpen(false);
-                      }}
-                    >
-                      {menuItem}
-                    </button>
-                  </li>
-                ))}
-              </Menu>
-              <SocialItems className="ml-5 d-none d-lg-block">
-                <a
-                  href="https://www.facebook.com/Sibaja-Alimentos-108239231330083/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="d-inline-block"
-                >
-                  <Facebook />
-                </a>
-                <a
-                  href="https://www.instagram.com/sibaja_alimentos/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="d-inline-block ml-2"
-                >
-                  <Instagram />
-                </a>
-              </SocialItems>
-            </div>
+            <Row className="align-items-center">
+              <Col xs={6} lg={3}>
+                <StyledLogo />
+              </Col>
+              <Col xs={6} className="d-lg-none text-right">
+                <HamburgerWrapper onClick={() => setOpen(true)}>
+                  <MenuIcon />
+                </HamburgerWrapper>
+              </Col>
+              <Col xs={9} className="d-none d-lg-flex">
+                <Menu className="ml-lg-auto list-unstyled m-0 p-0 d-none d-lg-flex">
+                  {menuItems.map(menuItem => (
+                    <li key={menuItem}>
+                      <button
+                        className="text-uppercase border-0 bg-transparent"
+                        onClick={() => {
+                          scrollTo(`#${menuItem}`);
+                          setOpen(false);
+                        }}
+                      >
+                        {menuItem}
+                      </button>
+                    </li>
+                  ))}
+                </Menu>
+                <SocialItems className="ml-5 d-none d-lg-block">
+                  <a
+                    href="https://www.facebook.com/Sibaja-Alimentos-108239231330083/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="d-inline-block"
+                  >
+                    <Facebook />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/sibaja_alimentos/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="d-inline-block ml-2"
+                  >
+                    <Instagram />
+                  </a>
+                </SocialItems>
+              </Col>
+            </Row>
           </Container>
         </header>
       </Headroom>
