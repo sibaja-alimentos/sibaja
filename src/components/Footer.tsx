@@ -78,7 +78,7 @@ const Footer = () => {
         <Container className="py-5">
           <Row>
             <Col lg={6} className="mb-4 mb-lg-0">
-              <div className="logos d-flex align-items-center">
+              <div className="logos d-flex align-items-center justify-content-center justify-content-lg-start">
                 <Logo />
                 <SanMateo />
                 <a
@@ -92,7 +92,7 @@ const Footer = () => {
             </Col>
             <Col lg={6}>
               <Row>
-                <Col lg={8} className="mb-4 mb-lg-0">
+                <Col lg={8} className="mb-4 mb-lg-0 text-center text-lg-left">
                   <h4 className="h6 mb-3">SIBAJA ALIMENTOS S.A DE C.V</h4>
                   <a
                     href="mailto:informacion@sibajaalimentos.com"
@@ -111,9 +111,9 @@ const Footer = () => {
                     Visita: Tortillería Rubí
                   </a>
                 </Col>
-                <Col lg={3} className="ml-auto">
+                <Col lg={3} className="ml-auto text-center text-lg-left">
                   <h4 className="h6 mb-3 text-uppercase">Síguenos</h4>
-                  <div className="d-flex social-links">
+                  <div className="d-flex social-links justify-content-center justify-content-lg-start">
                     <a
                       href="https://www.facebook.com/Sibaja-Alimentos-108239231330083/"
                       target="_blank"

@@ -12,7 +12,6 @@ const ProductContent = styled.div`
   background-color: #f6f6f6;
   padding-top: 180px;
   height: calc(100% - 250px);
-  //margin-top: -125px;
   transform: translateY(-125px);
 `;
 

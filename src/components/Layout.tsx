@@ -40,7 +40,7 @@ const WhatsappBtn = styled.a`
   position: fixed;
   bottom: 15px;
   right: 15px;
-  width: 50px;
+  width: 70px;
   z-index: 1999;
   background: transparent;
   border: 0;
