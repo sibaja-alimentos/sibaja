@@ -13,6 +13,7 @@ import Close from "../images/close.inline.svg";
 
 const StyledLogo = styled(Logo)`
   width: 40%;
+  flex: 0 0 40%;
   max-width: 150px;
   height: auto;
 `;
@@ -61,7 +62,7 @@ const MobileMenu = styled.div`
     &:first-of-type {
       position: absolute;
       width: 40px;
-      flex: 0 0 40%;
+      flex: 0 0 40px;
       top: 15px;
       right: 15px;
       svg {
@@ -78,6 +79,7 @@ const MobileMenu = styled.div`
 const HamburgerWrapper = styled.button`
   z-index: 2;
   width: 40px;
+  flex: 0 0 40px;
   background: transparent;
   border: 0;
   svg {
