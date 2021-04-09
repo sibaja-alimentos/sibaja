@@ -16,7 +16,7 @@ const Divider = styled.div`
 const StyledFooter = styled.footer`
   background-color: #f6f6f6;
   .logos {
-    svg {
+    & > svg {
       &:first-of-type {
         width: 30%;
         flex: 0 0 30%;
@@ -27,9 +27,13 @@ const StyledFooter = styled.footer`
         flex: 0 0 20%;
         margin-right: 30px;
       }
-      &:last-of-type {
-        width: 20%;
-        flex: 0 0 20%;
+    }
+    & > a {
+      width: 20%;
+      flex: 0 0 20%;
+      display: block;
+      svg {
+        width: 100%;
       }
     }
   }
@@ -39,6 +43,25 @@ const StyledFooter = styled.footer`
   a {
     color: #000;
     display: block;
+  }
+  .social-links {
+    a {
+      transition: all 0.3s ease-in-out;
+      svg {
+        path {
+          transition: all 0.3s ease-in-out;
+        }
+      }
+      &:hover {
+        color: ${props => props.theme.colors.red};
+        text-decoration: none;
+        svg {
+          path {
+            fill: ${props => props.theme.colors.red};
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -53,7 +76,13 @@ const Footer = () => {
               <div className="logos d-flex align-items-center">
                 <Logo />
                 <SanMateo />
-                <Rubi />
+                <a
+                  href="https://tortilleriarubi.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Rubi />
+                </a>
               </div>
             </Col>
             <Col lg={6}>
@@ -79,7 +108,7 @@ const Footer = () => {
                 </Col>
                 <Col lg={3} className="ml-auto">
                   <h4 className="h6 mb-3 text-uppercase">Síguenos</h4>
-                  <div className="d-flex">
+                  <div className="d-flex social-links">
                     <a
                       href="https://www.facebook.com/Sibaja-Alimentos-108239231330083/"
                       target="_blank"

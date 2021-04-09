@@ -29,7 +29,7 @@ const SectionTitle: React.FC<IProps & React.HTMLAttributes<HTMLDivElement>> = ({
 }) => {
   return (
     <div className="d-inline-block">
-      <Title className={`font-weight-bold mb-2 ${className}`} color={color}>
+      <Title className={`h3 font-weight-bold mb-2 ${className}`} color={color}>
         {children}
       </Title>
       <Deco color={color} />

@@ -26,6 +26,9 @@ const Form = styled.form`
     margin-bottom: 30px;
     padding: 10px 0;
     line-height: 1.5;
+    &:focus {
+      outline: none;
+    }
     &::placeholder {
       color: #000;
     }
@@ -36,7 +39,7 @@ const Copy = styled.p`
   line-height: 1.5;
   font-size: 1.2rem;
   @media (min-width: 768px) {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 `;
 
