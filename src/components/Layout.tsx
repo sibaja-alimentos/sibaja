@@ -66,7 +66,7 @@ const Layout: React.FC = ({ children }) => {
       {children}
       <Footer />
       <WhatsappBtn
-        href="https://api.whatsapp.com/send?phone=+528999231748&text=Me+gustar%C3%ADa+recibir+informaci%C3%B3n+de+Sibaja+alimentos"
+        href="https://api.whatsapp.com/send?phone=+528125164841&text=Me+gustar%C3%ADa+recibir+informaci%C3%B3n+de+Sibaja+alimentos"
         target="_blank"
         rel="noreferrer"
       >
