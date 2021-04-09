@@ -69,7 +69,7 @@ const Products = () => {
   `);
 
   return (
-    <Container id="productos" fluid className="mt-5 pt-5">
+    <Container id="productos" className="mt-5 pt-5">
       <div className="text-center mb-5">
         <SectionTitle>Nuestros productos</SectionTitle>
       </div>

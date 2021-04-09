@@ -42,11 +42,11 @@ const Services = () => {
             <Check className="mb-3" />
             <h3 className="mb-4">Equipo Reynosa, Tamaulipas</h3>
             <p>
-              3 locales de producción
+              Locales de producción
               <br />
-              5 máquinas para producción de tortillas de maíz
+              Máquinas para producción de tortillas de maíz
               <br />
-              1 máquina para producción de tortillas de trigo
+              Máquina para producción de tortillas de trigo
               <br />
               Flotilla de unidades de reparto
             </p>
@@ -57,9 +57,9 @@ const Services = () => {
             <Check className="mb-3" />
             <h3 className="mb-4">Equipo Monterrey, Nuevo León</h3>
             <p>
-              1 local de producción
+              Local de producción
               <br />
-              1 máquina para producción de tortillas de maíz
+              Máquina para producción de tortillas de maíz
               <br />
               Flotilla de unidades de reparto
             </p>
