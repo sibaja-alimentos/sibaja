@@ -43,6 +43,11 @@ const StyledFooter = styled.footer`
   a {
     color: #000;
     display: block;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      color: ${props => props.theme.colors.red};
+      text-decoration: none;
+    }
   }
   .social-links {
     a {
