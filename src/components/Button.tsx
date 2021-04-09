@@ -9,6 +9,10 @@ const StyledButton = styled.button`
   letter-spacing: 0.2em;
   line-height: 1;
   font-size: 0.8rem;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: scale(0.95);
+  }
   @media (min-width: 768px) {
     font-size: 1rem;
   }
