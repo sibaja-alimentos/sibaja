@@ -8,6 +8,8 @@ import { Squash as Hamburger } from "hamburger-react";
 import Logo from "../images/logo.inline.svg";
 import Facebook from "../images/facebook.inline.svg";
 import Instagram from "../images/instagram.inline.svg";
+import MenuIcon from "../images/menu.inline.svg";
+import Close from "../images/close.inline.svg";
 
 const StyledLogo = styled(Logo)`
   width: 40%;
@@ -16,26 +18,8 @@ const StyledLogo = styled(Logo)`
 `;
 
 const Menu = styled.ul`
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  background: #fff;
-  top: 0;
-  left: 0;
-  transform: translateX(-100%);
-  transition: all 0.3s ease-in-out;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  @media (min-width: 992px) {
-    position: relative;
-    width: auto;
-    height: auto;
-    background: transparent;
-    flex-direction: row;
-    transform: translateX(0);
-  }
   &.opened {
     transform: translateX(0);
   }
@@ -56,8 +40,50 @@ const Menu = styled.ul`
   }
 `;
 
-const HamburgerWrapper = styled.div`
+const MobileMenu = styled.div`
+  position: fixed;
+  width: 100%;
+  min-height: 100vh;
+  background: #fff;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  transform: translateX(-100%);
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  button {
+    background: transparent;
+    border: 0;
+    margin-bottom: 1rem;
+    &:first-of-type {
+      position: absolute;
+      width: 40px;
+      top: 15px;
+      right: 15px;
+      svg {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+  &.opened {
+    transform: translateX(0);
+  }
+`;
+
+const HamburgerWrapper = styled.button`
   z-index: 2;
+  width: 50%;
+  max-width: 40px;
+  background: transparent;
+  border: 0;
+  svg {
+    width: 100%;
+    height: auto;
+  }
 `;
 
 const SocialItems = styled.div`
@@ -79,55 +105,73 @@ const Header = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <Headroom style={{ zIndex: 1999 }}>
-      <header className="bg-white">
-        <Container className="py-4">
-          <div className="d-flex align-items-center">
-            <StyledLogo />
-            <HamburgerWrapper className="ml-auto d-lg-none">
-              <Hamburger color="#000" toggled={open} toggle={setOpen} />
-            </HamburgerWrapper>
-            <Menu
-              className={`ml-lg-auto list-unstyled m-0 p-0${
-                open ? " opened" : ""
-              }`}
-            >
-              {menuItems.map(menuItem => (
-                <li key={menuItem}>
-                  <button
-                    className="text-uppercase border-0 bg-transparent"
-                    onClick={() => {
-                      scrollTo(`#${menuItem}`);
-                      setOpen(false);
-                    }}
-                  >
-                    {menuItem}
-                  </button>
-                </li>
-              ))}
-            </Menu>
-            <SocialItems className="ml-5 d-none d-lg-block">
-              <a
-                href=""
-                target="_blank"
-                rel="noreferrer"
-                className="d-inline-block"
+    <>
+      <Headroom style={{ zIndex: 1999 }}>
+        <header className="bg-white">
+          <Container className="py-4">
+            <div className="d-flex align-items-center">
+              <StyledLogo />
+              <HamburgerWrapper
+                className="ml-auto d-lg-none"
+                onClick={() => setOpen(true)}
               >
-                <Facebook />
-              </a>
-              <a
-                href=""
-                target="_blank"
-                rel="noreferrer"
-                className="d-inline-block ml-2"
-              >
-                <Instagram />
-              </a>
-            </SocialItems>
-          </div>
-        </Container>
-      </header>
-    </Headroom>
+                <MenuIcon />
+              </HamburgerWrapper>
+              <Menu className="ml-lg-auto list-unstyled m-0 p-0 d-none d-lg-flex">
+                {menuItems.map(menuItem => (
+                  <li key={menuItem}>
+                    <button
+                      className="text-uppercase border-0 bg-transparent"
+                      onClick={() => {
+                        scrollTo(`#${menuItem}`);
+                        setOpen(false);
+                      }}
+                    >
+                      {menuItem}
+                    </button>
+                  </li>
+                ))}
+              </Menu>
+              <SocialItems className="ml-5 d-none d-lg-block">
+                <a
+                  href=""
+                  target="_blank"
+                  rel="noreferrer"
+                  className="d-inline-block"
+                >
+                  <Facebook />
+                </a>
+                <a
+                  href=""
+                  target="_blank"
+                  rel="noreferrer"
+                  className="d-inline-block ml-2"
+                >
+                  <Instagram />
+                </a>
+              </SocialItems>
+            </div>
+          </Container>
+        </header>
+      </Headroom>
+      <MobileMenu className={`d-lg-none${open ? " opened" : ""}`}>
+        <button onClick={() => setOpen(false)}>
+          <Close />
+        </button>
+        {menuItems.map(menuItem => (
+          <button
+            key={menuItem}
+            className="text-uppercase border-0 bg-transparent"
+            onClick={() => {
+              scrollTo(`#${menuItem}`);
+              setOpen(false);
+            }}
+          >
+            {menuItem}
+          </button>
+        ))}
+      </MobileMenu>
+    </>
   );
 };
 
