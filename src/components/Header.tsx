@@ -75,11 +75,11 @@ const MobileMenu = styled.div`
 `;
 
 const HamburgerWrapper = styled.button`
-  width: 40px;
+  min-width: 40px;
   background: transparent;
   border: 0;
   svg {
-    width: 100%;
+    width: 40px;
     height: auto;
   }
 `;
