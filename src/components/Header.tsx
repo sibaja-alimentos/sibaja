@@ -134,7 +134,7 @@ const Header = () => {
               </Menu>
               <SocialItems className="ml-5 d-none d-lg-block">
                 <a
-                  href=""
+                  href="https://www.facebook.com/Sibaja-Alimentos-108239231330083/"
                   target="_blank"
                   rel="noreferrer"
                   className="d-inline-block"
@@ -142,7 +142,7 @@ const Header = () => {
                   <Facebook />
                 </a>
                 <a
-                  href=""
+                  href="https://www.instagram.com/sibaja_alimentos/"
                   target="_blank"
                   rel="noreferrer"
                   className="d-inline-block ml-2"

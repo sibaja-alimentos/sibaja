@@ -107,7 +107,13 @@ const Products = () => {
                       <SanMateo />
                     </Col>
                     <Col xs={4} className="mr-auto">
-                      <Rubi />
+                      <a
+                        href="https://tortilleriarubi.com"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <Rubi />
+                      </a>
                     </Col>
                   </Row>
                 )}

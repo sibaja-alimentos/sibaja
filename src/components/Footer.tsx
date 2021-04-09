@@ -69,20 +69,30 @@ const Footer = () => {
                   <a href="tel:8999231748" className="mb-2">
                     Teléfono: (899) 923 1748
                   </a>
-                  <a href="">Visita: Tortillería Rubí</a>
+                  <a
+                    href="https://tortilleriarubi.com"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Visita: Tortillería Rubí
+                  </a>
                 </Col>
                 <Col lg={3} className="ml-auto">
                   <h4 className="h6 mb-3 text-uppercase">Síguenos</h4>
                   <div className="d-flex">
                     <a
-                      href=""
+                      href="https://www.facebook.com/Sibaja-Alimentos-108239231330083/"
                       target="_blank"
                       rel="noreferrer"
                       className="mr-2"
                     >
                       <Facebook />
                     </a>
-                    <a href="" target="_blank" rel="noreferrer">
+                    <a
+                      href="https://www.instagram.com/sibaja_alimentos/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <Instagram />
                     </a>
                   </div>
