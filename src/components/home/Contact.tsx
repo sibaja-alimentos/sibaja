@@ -47,6 +47,14 @@ const Copy = styled.p`
 const Contact = () => {
   const [formData, setFormData] = useState({});
 
+  const encode = (data: Record<string, string>) {
+    return Object.keys(data)
+      .map(
+        key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+      )
+      .join("&");
+  }
+
   const handleInputChange = (e: React.ChangeEvent<any>) => {
     setFormData(prevState => ({
       ...prevState,
@@ -60,7 +68,7 @@ const Contact = () => {
       url: "/",
       method: "post",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      data: JSON.stringify({ "form-name": "contact", ...formData }),
+      data: encode({ "form-name": "contact", ...formData }),
     };
     axios(axiosConfig)
       .then(res => console.log("res: ", res))
