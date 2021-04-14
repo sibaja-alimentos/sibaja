@@ -57,11 +57,10 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const axiosConfig: AxiosRequestConfig = {
-      "form-name": "contact",
       url: "/",
       method: "post",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      data: JSON.stringify(formData),
+      data: JSON.stringify({ "form-name": "contact", ...formData }),
     };
     axios(axiosConfig)
       .then(res => console.log("res: ", res))
