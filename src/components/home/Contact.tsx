@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Alert } from "react-bootstrap";
 import { StaticImage } from "gatsby-plugin-image";
 import axios, { AxiosRequestConfig } from "axios";
 
@@ -45,6 +45,11 @@ const Copy = styled.p`
 `;
 
 const Contact = () => {
+  const [submitting, setSubmitting] = useState(false);
+  const [formMessage, setFormMessage] = useState({
+    variant: "",
+    message: "",
+  });
   const [formData, setFormData] = useState({});
 
   const encode = (data: Record<string, string>) => {
@@ -62,6 +67,7 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setSubmitting(true);
     const axiosConfig: AxiosRequestConfig = {
       url: "/",
       method: "post",
@@ -69,8 +75,21 @@ const Contact = () => {
       data: encode({ "form-name": "contact", ...formData }),
     };
     axios(axiosConfig)
-      .then(res => console.log("res: ", res))
-      .catch(e => console.log("err: ", e));
+      .then(() => {
+        setFormMessage({
+          variant: "success",
+          message: "Hemos recibido tu mensaje, te contactaremos a la brevedad.",
+        });
+      })
+      .catch(() => {
+        setFormMessage({
+          variant: "danger",
+          message: "Ocurrió un error, inténtalo de nuevo",
+        });
+      })
+      .then(() => {
+        setSubmitting(false);
+      });
   };
 
   return (
@@ -151,9 +170,16 @@ const Contact = () => {
                   required
                 />
                 <div className="text-center">
-                  <Button type="submit">Enviar</Button>
+                  <Button type="submit" disabled={submitting}>
+                    Enviar
+                  </Button>
                 </div>
               </Form>
+              {formMessage.message && (
+                <Alert variant={formMessage.variant} className="mt-3">
+                  {formMessage.message}
+                </Alert>
+              )}
             </Col>
           </Row>
         </Container>

@@ -16,6 +16,10 @@ const StyledButton = styled.button`
   @media (min-width: 768px) {
     font-size: 1rem;
   }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 `;
 
 const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement>> = ({
