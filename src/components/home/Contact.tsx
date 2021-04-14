@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
 import { StaticImage } from "gatsby-plugin-image";
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 
 import Button from "../Button";
 import Decoration from "../../images/decoration.inline.svg";
@@ -56,10 +56,13 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    axios
-      .post("/", {
-        ...formData,
-      })
+    const axiosConfig: AxiosRequestConfig = {
+      url: "/",
+      method: "post",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      data: JSON.stringify(formData),
+    };
+    axios(axiosConfig)
       .then(res => console.log("res: ", res))
       .catch(e => console.log("err: ", e));
   };
