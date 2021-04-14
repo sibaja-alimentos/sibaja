@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
 import { StaticImage } from "gatsby-plugin-image";
+import axios from "axios";
 
 import Button from "../Button";
 import Decoration from "../../images/decoration.inline.svg";
@@ -44,6 +45,25 @@ const Copy = styled.p`
 `;
 
 const Contact = () => {
+  const [formData, setFormData] = useState({});
+
+  const handleInputChange = (e: React.ChangeEvent<any>) => {
+    setFormData(prevState => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    axios
+      .post("/", {
+        ...formData,
+      })
+      .then(res => console.log("res: ", res))
+      .catch(e => console.log("err: ", e));
+  };
+
   return (
     <>
       <Wrapper id="contacto" className="mt-5 py-5 position-relative">
@@ -74,12 +94,53 @@ const Contact = () => {
                   <p>Déjanos tus datos y nos comunicaremos contigo</p>
                 </Col>
               </Row>
-              <Form>
-                <input type="text" placeholder="Nombre" />
-                <input type="tel" placeholder="Teléfono" />
-                <input type="email" placeholder="Correo" />
-                <input type="text" placeholder="Ciudad" />
-                <textarea placeholder="Mensaje" />
+              <Form
+                name="contact"
+                method="post"
+                data-netlify="true"
+                data-netlify-honeypot="address"
+                onSubmit={handleSubmit}
+              >
+                <input type="hidden" name="form-name" value="contact" />
+                <input
+                  type="hidden"
+                  name="address"
+                  onChange={handleInputChange}
+                />
+                <input
+                  type="text"
+                  placeholder="Nombre"
+                  name="name"
+                  onChange={handleInputChange}
+                  required
+                />
+                <input
+                  type="tel"
+                  placeholder="Teléfono"
+                  name="phone"
+                  onChange={handleInputChange}
+                  required
+                />
+                <input
+                  type="email"
+                  placeholder="Correo"
+                  name="email"
+                  onChange={handleInputChange}
+                  required
+                />
+                <input
+                  type="text"
+                  placeholder="Ciudad"
+                  name="city"
+                  onChange={handleInputChange}
+                  required
+                />
+                <textarea
+                  placeholder="Mensaje"
+                  name="message"
+                  onChange={handleInputChange}
+                  required
+                />
                 <div className="text-center">
                   <Button type="submit">Enviar</Button>
                 </div>
