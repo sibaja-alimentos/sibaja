@@ -47,13 +47,11 @@ const Copy = styled.p`
 const Contact = () => {
   const [formData, setFormData] = useState({});
 
-  const encode = (data: Record<string, string>) {
+  const encode = (data: Record<string, string>) => {
     return Object.keys(data)
-      .map(
-        key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
-      )
+      .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
       .join("&");
-  }
+  };
 
   const handleInputChange = (e: React.ChangeEvent<any>) => {
     setFormData(prevState => ({
