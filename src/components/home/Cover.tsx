@@ -50,7 +50,7 @@ const Cover = () => {
         src="../../images/cover.jpg"
         alt="Sibaja alimentos"
         aspectRatio={1 / 1.5}
-        className="d-md-none"
+        className="d-block d-md-none"
       />
       <StaticImage
         src="../../images/cover.jpg"
