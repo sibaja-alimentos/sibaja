@@ -100,8 +100,8 @@ const Footer = () => {
                   >
                     Correo: informacion@sibajaalimentos.com
                   </a>
-                  <a href="tel:8999231748" className="mb-2">
-                    Teléfono: (899) 923 1748
+                  <a href="tel:8125164841" className="mb-2">
+                    Teléfono: (812) 516 4841
                   </a>
                   <a
                     href="https://tortilleriarubi.com"
